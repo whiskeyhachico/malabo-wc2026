@@ -1355,7 +1355,7 @@
         /* ===================================================
            CONFIG — Set this after completing SETUP.md
         =================================================== */
-        const APPS_SCRIPT_URL = 'YOUR_APPS_SCRIPT_URL_HERE';
+        const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxy2uYWcLL3oHHYV_l-w87eTrewt-Hut1SydlofJ7cC3x2TYOB69fitiQ4T_huCA2G_9g/exec';
         // ^ Paste your Google Apps Script web app URL here
 
         /* ===================================================
@@ -1385,7 +1385,7 @@
            CONFIG CHECK
         =================================================== */
         function checkConfig() {
-            if (APPS_SCRIPT_URL === 'YOUR_APPS_SCRIPT_URL_HERE') {
+            if (APPS_SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbxy2uYWcLL3oHHYV_l-w87eTrewt-Hut1SydlofJ7cC3x2TYOB69fitiQ4T_huCA2G_9g/exec') {
                 document.getElementById('config-banner').style.display = 'flex';
                 document.getElementById('submit-btn').disabled = true;
                 const notice = document.getElementById('form-notice');
