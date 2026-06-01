@@ -1,0 +1,1638 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Malabo World Cup 2026 Competition — Pick your teams and compete for the CFA prize pool. Entry fee 20,000 CFA. Deadline 10 June 2026.">
+    <title>🏆 Malabo WC2026 Competition</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* ===========================
+       CSS CUSTOM PROPERTIES
+    =========================== */
+        :root {
+            --bg: #060b18;
+            --bg2: #0d1526;
+            --bg3: #111827;
+            --card: rgba(255, 255, 255, 0.04);
+            --card-hover: rgba(255, 255, 255, 0.07);
+            --border: rgba(255, 255, 255, 0.08);
+            --border-green: rgba(34, 197, 94, 0.3);
+
+            --green: #22c55e;
+            --green-dark: #16a34a;
+            --green-light: #86efac;
+            --green-glow: rgba(34, 197, 94, 0.12);
+
+            --gold: #f59e0b;
+            --gold-light: #fcd34d;
+            --silver: #94a3b8;
+            --bronze: #cd7f32;
+
+            --text: #f1f5f9;
+            --text-sub: #94a3b8;
+            --text-muted: #64748b;
+
+            --danger: #ef4444;
+            --radius: 12px;
+            --radius-lg: 20px;
+            --shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+            --transition: all 0.2s ease;
+        }
+
+        /* ===========================
+       RESET & BASE
+    =========================== */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* ===========================
+       STICKY HEADER
+    =========================== */
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(6, 11, 24, 0.92);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: auto;
+            padding: 14px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--green);
+        }
+
+        nav {
+            display: flex;
+            gap: 4px;
+        }
+
+        nav a {
+            color: var(--text-sub);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 6px 14px;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            color: var(--text);
+            background: var(--card);
+        }
+
+        /* ===========================
+       HERO
+    =========================== */
+        .hero {
+            background:
+                radial-gradient(ellipse 80% 50% at 50% -20%, rgba(34, 197, 94, 0.22) 0%, transparent 60%),
+                radial-gradient(ellipse 60% 40% at 80% 110%, rgba(245, 158, 11, 0.09) 0%, transparent 60%),
+                var(--bg);
+            padding: 80px 24px 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%2322c55e' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='1.5'/%3E%3C/g%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--green-glow);
+            border: 1px solid var(--border-green);
+            padding: 6px 18px;
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--green-light);
+            margin-bottom: 24px;
+            letter-spacing: 0.3px;
+        }
+
+        .trophy {
+            font-size: 80px;
+            line-height: 1;
+            margin-bottom: 20px;
+            display: block;
+            filter: drop-shadow(0 0 32px rgba(245, 158, 11, 0.5));
+            animation: float 3.5s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .hero h1 {
+            font-size: clamp(30px, 5.5vw, 58px);
+            font-weight: 900;
+            letter-spacing: -2px;
+            line-height: 1.08;
+            background: linear-gradient(150deg, #ffffff 0%, #94a3b8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .hero-sub {
+            font-size: 17px;
+            color: var(--text-sub);
+            margin-bottom: 36px;
+        }
+
+        /* Countdown */
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+        }
+
+        .cd-block {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 16px 18px;
+            min-width: 78px;
+            text-align: center;
+        }
+
+        .cd-num {
+            display: block;
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--green);
+            line-height: 1;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .cd-lbl {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: var(--text-muted);
+            margin-top: 5px;
+            display: block;
+        }
+
+        .countdown-expired {
+            color: var(--text-sub);
+            font-style: italic;
+            font-size: 14px;
+            padding: 20px;
+        }
+
+        .hero-pills {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .pill {
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 9px 22px;
+            border-radius: 100px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .pill .val {
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        /* ===========================
+       STATS BAR
+    =========================== */
+        .stats-bar {
+            background: var(--bg2);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .stats-inner {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 24px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .stat-item {
+            padding: 22px 16px;
+            text-align: center;
+            position: relative;
+        }
+
+        .stat-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 20%;
+            height: 60%;
+            width: 1px;
+            background: var(--border);
+        }
+
+        .stat-num {
+            display: block;
+            font-size: 30px;
+            font-weight: 800;
+            color: var(--green);
+            letter-spacing: -1px;
+        }
+
+        .stat-lbl {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        /* ===========================
+       MAIN / CARDS
+    =========================== */
+        .main {
+            max-width: 1200px;
+            margin: auto;
+            padding: 40px 24px 80px;
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+        }
+
+        .card-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-title .icon {
+            font-size: 22px;
+        }
+
+        .card-badge {
+            font-size: 11px;
+            background: var(--green-glow);
+            color: var(--green);
+            border: 1px solid var(--border-green);
+            padding: 2px 10px;
+            border-radius: 100px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-left: auto;
+        }
+
+        .card-badge.err {
+            background: rgba(239, 68, 68, 0.1);
+            color: #ef4444;
+            border-color: rgba(239, 68, 68, 0.3);
+        }
+
+        /* ===========================
+       CONFIG BANNER
+    =========================== */
+        .config-banner {
+            background: rgba(245, 158, 11, 0.09);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            color: var(--gold);
+            padding: 14px 20px;
+            border-radius: var(--radius);
+            font-size: 14px;
+            display: none;
+            align-items: flex-start;
+            gap: 10px;
+            line-height: 1.5;
+        }
+
+        .config-banner code {
+            background: rgba(245, 158, 11, 0.15);
+            padding: 1px 6px;
+            border-radius: 4px;
+            font-size: 13px;
+        }
+
+        /* ===========================
+       LEADERBOARD
+    =========================== */
+        .lb-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .lb-table th {
+            text-align: left;
+            padding: 11px 16px;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            font-weight: 600;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .lb-table th:last-child,
+        .lb-table td:last-child {
+            text-align: right;
+        }
+
+        .lb-table td {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border);
+            font-size: 14px;
+            vertical-align: middle;
+        }
+
+        .lb-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .lb-table tbody tr {
+            transition: background 0.15s;
+        }
+
+        .lb-table tbody tr:hover {
+            background: var(--card-hover);
+        }
+
+        .lb-table tbody tr.gold-row {
+            background: rgba(245, 158, 11, 0.05);
+        }
+
+        .rank-cell {
+            width: 52px;
+            text-align: center !important;
+        }
+
+        .rank-medal {
+            font-size: 22px;
+        }
+
+        .rank-num {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text-muted);
+        }
+
+        .p-name {
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .team-tag {
+            font-size: 13px;
+            color: var(--text-sub);
+        }
+
+        .score-cell {
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--green);
+        }
+
+        .gold-row .score-cell {
+            color: var(--gold);
+        }
+
+        .lb-loading,
+        .lb-empty {
+            padding: 52px;
+            text-align: center;
+            color: var(--text-muted);
+        }
+
+        .spinner {
+            width: 34px;
+            height: 34px;
+            border: 3px solid var(--border);
+            border-top-color: var(--green);
+            border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+            margin: 0 auto 14px;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .lb-empty-icon {
+            font-size: 52px;
+            margin-bottom: 12px;
+        }
+
+        .refresh-bar {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 12px;
+            text-align: right;
+        }
+
+        .refresh-bar span {
+            color: var(--green);
+        }
+
+        /* ===========================
+       RULES
+    =========================== */
+        .tiers-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+
+        .tier-card {
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 22px;
+            text-align: center;
+        }
+
+        .tier-card.tc {
+            border-color: rgba(245, 158, 11, 0.25);
+        }
+
+        .tier-card.dh {
+            border-color: rgba(139, 92, 246, 0.25);
+        }
+
+        .tier-card.ud {
+            border-color: rgba(34, 197, 94, 0.25);
+        }
+
+        .tier-icon {
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
+
+        .tier-name {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .tier-mult {
+            font-size: 26px;
+            font-weight: 900;
+            color: var(--green);
+        }
+
+        .tier-mult-lbl {
+            font-size: 10px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .prizes-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .prize-item {
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .prize-medal {
+            font-size: 30px;
+            margin-bottom: 6px;
+        }
+
+        .prize-pct {
+            font-size: 28px;
+            font-weight: 900;
+        }
+
+        .prize-place {
+            font-size: 11px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .prize-item:nth-child(1) .prize-pct {
+            color: var(--gold);
+        }
+
+        .prize-item:nth-child(2) .prize-pct {
+            color: var(--silver);
+        }
+
+        .prize-item:nth-child(3) .prize-pct {
+            color: var(--bronze);
+        }
+
+        /* ===========================
+       POINTS / DATA TABLES
+    =========================== */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .table-wrap {
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .data-table th {
+            text-align: left;
+            padding: 10px 16px;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            font-weight: 600;
+            background: var(--bg2);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .data-table td {
+            padding: 12px 16px;
+            font-size: 14px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .data-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .data-table td:last-child {
+            text-align: right;
+            font-weight: 700;
+            color: var(--green);
+        }
+
+        .section-note {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 12px;
+            line-height: 1.6;
+        }
+
+        .sub-heading {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-sub);
+            margin: 28px 0 12px;
+        }
+
+        .overflow-x {
+            overflow-x: auto;
+        }
+
+        /* ===========================
+       ENTRY FORM
+    =========================== */
+        .form-notice {
+            font-size: 13px;
+            padding: 12px 16px;
+            border-radius: var(--radius);
+            border-left: 3px solid var(--border-green);
+            background: var(--bg2);
+            color: var(--text-sub);
+            margin-bottom: 20px;
+        }
+
+        .form-notice.warn {
+            border-left-color: var(--gold);
+            color: var(--gold);
+            background: rgba(245, 158, 11, 0.06);
+        }
+
+        .form-notice.err {
+            border-left-color: var(--danger);
+            color: #ef4444;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-bottom: 16px;
+        }
+
+        .form-label {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-sub);
+        }
+
+        .form-label .mult {
+            color: var(--green);
+        }
+
+        .form-control {
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            color: var(--text);
+            border-radius: var(--radius);
+            padding: 12px 16px;
+            font-size: 15px;
+            font-family: inherit;
+            transition: var(--transition);
+            width: 100%;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--green);
+            box-shadow: 0 0 0 3px var(--green-glow);
+        }
+
+        select.form-control {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2364748b' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+            padding-right: 36px;
+            cursor: pointer;
+        }
+
+        .form-3col {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .btn {
+            padding: 13px 32px;
+            border-radius: var(--radius);
+            border: none;
+            font-family: inherit;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background: var(--green);
+            color: #fff;
+        }
+
+        .btn-primary:hover:not(:disabled) {
+            background: var(--green-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(34, 197, 94, 0.3);
+        }
+
+        .btn-primary:active:not(:disabled) {
+            transform: translateY(0);
+        }
+
+        .btn-primary:disabled {
+            opacity: 0.45;
+            cursor: not-allowed;
+        }
+
+        /* ===========================
+       PRIZE POOL DISPLAY
+    =========================== */
+        .prize-pool-center {
+            text-align: center;
+            padding: 8px 0 28px;
+        }
+
+        .pool-total {
+            font-size: 52px;
+            font-weight: 900;
+            color: var(--gold);
+            letter-spacing: -2px;
+            line-height: 1;
+        }
+
+        .pool-sub {
+            font-size: 14px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 6px;
+            margin-bottom: 32px;
+        }
+
+        .pool-breakdown {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .pool-item {
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 22px;
+            text-align: center;
+        }
+
+        .pool-medal {
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
+
+        .pool-amount {
+            font-size: 20px;
+            font-weight: 800;
+            margin-bottom: 4px;
+        }
+
+        .pool-pct {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .pool-item:nth-child(1) .pool-amount {
+            color: var(--gold);
+        }
+
+        .pool-item:nth-child(2) .pool-amount {
+            color: var(--silver);
+        }
+
+        .pool-item:nth-child(3) .pool-amount {
+            color: var(--bronze);
+        }
+
+        /* ===========================
+       TOAST
+    =========================== */
+        .toast {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: #1e293b;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 15px 22px;
+            font-size: 14px;
+            font-weight: 500;
+            box-shadow: var(--shadow);
+            transform: translateY(120px);
+            opacity: 0;
+            transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+            z-index: 1000;
+            max-width: 360px;
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .toast.success {
+            border-color: var(--green);
+        }
+
+        .toast.error {
+            border-color: var(--danger);
+        }
+
+        /* ===========================
+       FOOTER
+    =========================== */
+        footer {
+            background: var(--bg2);
+            border-top: 1px solid var(--border);
+            text-align: center;
+            padding: 28px 24px;
+            color: var(--text-muted);
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        /* ===========================
+       RESPONSIVE
+    =========================== */
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+
+            .hero {
+                padding: 56px 20px 44px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+                letter-spacing: -1px;
+            }
+
+            .tiers-grid,
+            .prizes-grid,
+            .two-col,
+            .form-3col,
+            .pool-breakdown {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .stat-item::after {
+                display: none;
+            }
+
+            .cd-num {
+                font-size: 24px;
+            }
+
+            .cd-block {
+                padding: 12px 14px;
+                min-width: 62px;
+            }
+
+            .card {
+                padding: 22px 18px;
+            }
+
+            .pool-total {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- TOAST NOTIFICATION -->
+    <div class="toast" id="toast"></div>
+
+    <!-- ===========================
+     STICKY HEADER
+=========================== -->
+    <header class="site-header">
+        <div class="header-inner">
+            <div class="logo">⚽ Malabo <span>WC26</span></div>
+            <nav>
+                <a href="#leaderboard">🏅 Leaderboard</a>
+                <a href="#rules">📜 Rules</a>
+                <a href="#enter">🎮 Enter</a>
+                <a href="#prize">💰 Prize</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===========================
+     HERO
+=========================== -->
+    <section class="hero">
+        <div class="hero-badge">⚡ World Cup 2026 · USA / Canada / Mexico</div>
+        <span class="trophy">🏆</span>
+        <h1>Malabo WC2026<br>Competition</h1>
+        <p class="hero-sub">Pick your teams. Earn points. Take the pot.</p>
+
+        <div class="countdown" id="countdown">
+            <div class="cd-block">
+                <span class="cd-num" id="cd-days">—</span>
+                <span class="cd-lbl">Days</span>
+            </div>
+            <div class="cd-block">
+                <span class="cd-num" id="cd-hours">—</span>
+                <span class="cd-lbl">Hours</span>
+            </div>
+            <div class="cd-block">
+                <span class="cd-num" id="cd-mins">—</span>
+                <span class="cd-lbl">Minutes</span>
+            </div>
+            <div class="cd-block">
+                <span class="cd-num" id="cd-secs">—</span>
+                <span class="cd-lbl">Seconds</span>
+            </div>
+        </div>
+
+        <div class="hero-pills">
+            <div class="pill">Entry Fee: <span class="val">20,000 CFA</span></div>
+            <div class="pill">Deadline: <span class="val">10 June 2026</span></div>
+        </div>
+    </section>
+
+    <!-- ===========================
+     STATS BAR
+=========================== -->
+    <div class="stats-bar">
+        <div class="stats-inner">
+            <div class="stat-item">
+                <span class="stat-num" id="stat-players">—</span>
+                <span class="stat-lbl">Players Registered</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-num" id="stat-pool">—</span>
+                <span class="stat-lbl">Prize Pool</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-num" id="stat-days">—</span>
+                <span class="stat-lbl">Days to Deadline</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===========================
+     MAIN CONTENT
+=========================== -->
+    <main class="main">
+
+        <!-- CONFIG WARNING BANNER -->
+        <div class="config-banner" id="config-banner">
+            ⚠️ <div>
+                <strong>Backend not yet configured.</strong><br>
+                Open <code>MalaboWC26.html</code> and replace <code>YOUR_APPS_SCRIPT_URL_HERE</code> with your Google
+                Apps Script web app URL.
+                Follow <strong>SETUP.md</strong> for step-by-step instructions.
+            </div>
+        </div>
+
+        <!-- ====== LIVE LEADERBOARD ====== -->
+        <section class="card" id="leaderboard">
+            <h2 class="card-title">
+                <span class="icon">🏅</span>
+                Live Leaderboard
+                <span class="card-badge" id="lb-badge">Live</span>
+            </h2>
+
+            <div id="lb-content">
+                <div class="lb-loading">
+                    <div class="spinner"></div>
+                    Loading leaderboard…
+                </div>
+            </div>
+
+            <div class="refresh-bar">
+                Auto-refreshes every <span>60s</span> &nbsp;·&nbsp; Last updated: <span id="last-updated">—</span>
+            </div>
+        </section>
+
+        <!-- ====== RULES ====== -->
+        <section class="card" id="rules">
+            <h2 class="card-title"><span class="icon">📜</span> Rules</h2>
+
+            <p style="color:var(--text-sub); margin-bottom:22px; font-size:15px">
+                Each player selects <strong style="color:var(--text)">one team from each tier</strong> before the
+                deadline.
+                Your total score is the sum of each team's tournament stage result multiplied by its tier multiplier.
+            </p>
+
+            <div class="tiers-grid">
+                <div class="tier-card tc">
+                    <div class="tier-icon">🔱</div>
+                    <div class="tier-name">Title Contender</div>
+                    <div class="tier-mult">×1.0</div>
+                    <div class="tier-mult-lbl">Multiplier</div>
+                </div>
+                <div class="tier-card dh">
+                    <div class="tier-icon">🐴</div>
+                    <div class="tier-name">Dark Horse</div>
+                    <div class="tier-mult">×1.5</div>
+                    <div class="tier-mult-lbl">Multiplier</div>
+                </div>
+                <div class="tier-card ud">
+                    <div class="tier-icon">🐉</div>
+                    <div class="tier-name">Underdog</div>
+                    <div class="tier-mult">×2.5</div>
+                    <div class="tier-mult-lbl">Multiplier</div>
+                </div>
+            </div>
+
+            <p style="color:var(--text-sub); margin-bottom:14px; font-size:14px">
+                <strong style="color:var(--text)">Winners</strong> — Top 3 players by total score share the prize pool:
+            </p>
+            <div class="prizes-grid">
+                <div class="prize-item">
+                    <div class="prize-medal">🥇</div>
+                    <div class="prize-pct">60%</div>
+                    <div class="prize-place">1st Place</div>
+                </div>
+                <div class="prize-item">
+                    <div class="prize-medal">🥈</div>
+                    <div class="prize-pct">30%</div>
+                    <div class="prize-place">2nd Place</div>
+                </div>
+                <div class="prize-item">
+                    <div class="prize-medal">🥉</div>
+                    <div class="prize-pct">10%</div>
+                    <div class="prize-place">3rd Place</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== POINT SYSTEM ====== -->
+        <section class="card">
+            <h2 class="card-title"><span class="icon">📊</span> Point System</h2>
+
+            <div class="two-col">
+                <div>
+                    <div class="table-wrap">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Tournament Stage</th>
+                                    <th>Base Points</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Round of 32 Exit</td>
+                                    <td>10</td>
+                                </tr>
+                                <tr>
+                                    <td>Round of 16</td>
+                                    <td>40</td>
+                                </tr>
+                                <tr>
+                                    <td>Quarter Final</td>
+                                    <td>80</td>
+                                </tr>
+                                <tr>
+                                    <td>Semi Final</td>
+                                    <td>120</td>
+                                </tr>
+                                <tr>
+                                    <td>Runner-Up</td>
+                                    <td>150</td>
+                                </tr>
+                                <tr>
+                                    <td>🏆 Champion</td>
+                                    <td>180</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div>
+                    <div class="table-wrap">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Tier</th>
+                                    <th>Multiplier</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>🔱 Title Contender</td>
+                                    <td>×1.0</td>
+                                </tr>
+                                <tr>
+                                    <td>🐴 Dark Horse</td>
+                                    <td>×1.5</td>
+                                </tr>
+                                <tr>
+                                    <td>🐉 Underdog</td>
+                                    <td>×2.5</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="section-note">
+                        Score = Base Points × Tier Multiplier<br>
+                        Total = Sum of all three tier scores
+                    </p>
+                </div>
+            </div>
+
+            <p class="sub-heading">📌 Example Scoring</p>
+            <div class="overflow-x">
+                <div class="table-wrap">
+                    <table class="data-table" style="min-width:600px">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Title Contender (×1.0)</th>
+                                <th>Dark Horse (×1.5)</th>
+                                <th>Underdog (×2.5)</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Brazil – Champion (180×1.0 = 180)</td>
+                                <td>Morocco – QF (80×1.5 = 120)</td>
+                                <td>Tunisia – R32 (10×2.5 = 25)</td>
+                                <td>325</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>France – Runner-Up (150×1.0 = 150)</td>
+                                <td>Japan – QF (80×1.5 = 120)</td>
+                                <td>Australia – R16 (40×2.5 = 100)</td>
+                                <td>370</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Spain – SF (120×1.0 = 120)</td>
+                                <td>USA – SF (120×1.5 = 180)</td>
+                                <td>South Korea – R16 (40×2.5 = 100)</td>
+                                <td>400</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== PLAYER ENTRY ====== -->
+        <section class="card" id="enter">
+            <h2 class="card-title"><span class="icon">🎮</span> Player Entry</h2>
+
+            <div class="form-notice" id="form-notice">
+                📅 Entries open until <strong>10 June 2026</strong> &nbsp;·&nbsp; Entry fee: <strong>20,000 CFA</strong>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="name">Your Name</label>
+                <input id="name" class="form-control" type="text" placeholder="e.g. Jerome" autocomplete="off"
+                    maxlength="50">
+            </div>
+
+            <div class="form-3col">
+                <div class="form-group">
+                    <label class="form-label" for="title">🔱 Title Contender <span class="mult">(×1.0)</span></label>
+                    <select id="title" class="form-control">
+                        <option value="">— Select team —</option>
+                        <option>Spain</option>
+                        <option>France</option>
+                        <option>England</option>
+                        <option>Brazil</option>
+                        <option>Argentina</option>
+                        <option>Portugal</option>
+                        <option>Germany</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="dark">🐴 Dark Horse <span class="mult">(×1.5)</span></label>
+                    <select id="dark" class="form-control">
+                        <option value="">— Select team —</option>
+                        <option>Netherlands</option>
+                        <option>Belgium</option>
+                        <option>Norway</option>
+                        <option>Colombia</option>
+                        <option>Uruguay</option>
+                        <option>USA</option>
+                        <option>Switzerland</option>
+                        <option>Mexico</option>
+                        <option>Croatia</option>
+                        <option>Morocco</option>
+                        <option>Turkiye</option>
+                        <option>Japan</option>
+                        <option>Ecuador</option>
+                        <option>Austria</option>
+                        <option>Senegal</option>
+                        <option>Sweden</option>
+                        <option>Scotland</option>
+                        <option>Canada</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="underdog">🐉 Underdog <span class="mult">(×2.5)</span></label>
+                    <select id="underdog" class="form-control">
+                        <option value="">— Select team —</option>
+                        <option>Ivory Coast</option>
+                        <option>Ghana</option>
+                        <option>Paraguay</option>
+                        <option>Egypt</option>
+                        <option>Algeria</option>
+                        <option>Bosnia &amp; Herzegovina</option>
+                        <option>Czechia</option>
+                        <option>South Korea</option>
+                        <option>Iran</option>
+                        <option>DR Congo</option>
+                        <option>Tunisia</option>
+                        <option>Australia</option>
+                        <option>Cape Verde</option>
+                        <option>Uzbekistan</option>
+                        <option>Haiti</option>
+                        <option>Panama</option>
+                        <option>Curacao</option>
+                        <option>Jordan</option>
+                        <option>Saudi Arabia</option>
+                        <option>Iraq</option>
+                        <option>Qatar</option>
+                        <option>South Africa</option>
+                        <option>New Zealand</option>
+                    </select>
+                </div>
+            </div>
+
+            <button id="submit-btn" class="btn btn-primary" onclick="submitEntry()">
+                🚀 Submit Entry
+            </button>
+        </section>
+
+        <!-- ====== PRIZE POOL ====== -->
+        <section class="card" id="prize">
+            <h2 class="card-title"><span class="icon">💰</span> Prize Pool</h2>
+
+            <div class="prize-pool-center">
+                <div class="pool-total" id="pool-total">0 CFA</div>
+                <div class="pool-sub" id="pool-sub">0 Players × 20,000 CFA</div>
+                <div class="pool-breakdown">
+                    <div class="pool-item">
+                        <div class="pool-medal">🥇</div>
+                        <div class="pool-amount" id="pool-1st">0 CFA</div>
+                        <div class="pool-pct">60% — 1st Place</div>
+                    </div>
+                    <div class="pool-item">
+                        <div class="pool-medal">🥈</div>
+                        <div class="pool-amount" id="pool-2nd">0 CFA</div>
+                        <div class="pool-pct">30% — 2nd Place</div>
+                    </div>
+                    <div class="pool-item">
+                        <div class="pool-medal">🥉</div>
+                        <div class="pool-amount" id="pool-3rd">0 CFA</div>
+                        <div class="pool-pct">10% — 3rd Place</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>🏆 Malabo WC2026 Competition &nbsp;·&nbsp; Entry Fee 20,000 CFA &nbsp;·&nbsp; Deadline 10 June 2026</p>
+        <p style="margin-top:4px; font-size:11px; color:var(--text-muted)">
+            Scores recalculate automatically as results are updated in the admin spreadsheet
+        </p>
+    </footer>
+
+    <!-- ===========================
+     JAVASCRIPT
+=========================== -->
+    <script>
+        /* ===================================================
+           CONFIG — Set this after completing SETUP.md
+        =================================================== */
+        const APPS_SCRIPT_URL = 'YOUR_APPS_SCRIPT_URL_HERE';
+        // ^ Paste your Google Apps Script web app URL here
+
+        /* ===================================================
+           CONSTANTS
+        =================================================== */
+        const STAGE_POINTS = { R32: 10, R16: 40, QF: 80, SF: 120, RU: 150, CH: 180 };
+        const MULTIPLIER = { title: 1.0, dark: 1.5, underdog: 2.5 };
+        const ENTRY_FEE = 20000;
+        const DEADLINE = new Date('2026-06-10T23:59:59+01:00'); // WAT = UTC+1
+
+        /* ===================================================
+           STATE
+        =================================================== */
+        let appState = { players: [], results: {} };
+
+        /* ===================================================
+           INIT
+        =================================================== */
+        document.addEventListener('DOMContentLoaded', () => {
+            checkConfig();
+            startCountdown();
+            loadData();
+            setInterval(loadData, 60000);
+        });
+
+        /* ===================================================
+           CONFIG CHECK
+        =================================================== */
+        function checkConfig() {
+            if (APPS_SCRIPT_URL === 'YOUR_APPS_SCRIPT_URL_HERE') {
+                document.getElementById('config-banner').style.display = 'flex';
+                document.getElementById('submit-btn').disabled = true;
+                const notice = document.getElementById('form-notice');
+                notice.className = 'form-notice warn';
+                notice.innerHTML = '⚠️ Backend not configured — entries are disabled until setup is complete. See <strong>SETUP.md</strong>.';
+            }
+        }
+
+        /* ===================================================
+           COUNTDOWN TIMER
+        =================================================== */
+        function startCountdown() {
+            function tick() {
+                const diff = DEADLINE - new Date();
+                if (diff <= 0) {
+                    document.getElementById('countdown').innerHTML =
+                        '<span class="countdown-expired">🔒 Entry deadline has passed</span>';
+                    const btn = document.getElementById('submit-btn');
+                    if (btn) btn.disabled = true;
+                    const notice = document.getElementById('form-notice');
+                    if (notice && !notice.classList.contains('warn')) {
+                        notice.className = 'form-notice warn';
+                        notice.textContent = '🔒 The entry deadline has passed. No new entries accepted.';
+                    }
+                    document.getElementById('stat-days').textContent = '0';
+                    return;
+                }
+                const d = Math.floor(diff / 86400000);
+                const h = Math.floor((diff % 86400000) / 3600000);
+                const m = Math.floor((diff % 3600000) / 60000);
+                const s = Math.floor((diff % 60000) / 1000);
+                document.getElementById('cd-days').textContent = pad(d);
+                document.getElementById('cd-hours').textContent = pad(h);
+                document.getElementById('cd-mins').textContent = pad(m);
+                document.getElementById('cd-secs').textContent = pad(s);
+                document.getElementById('stat-days').textContent = d;
+            }
+            tick();
+            setInterval(tick, 1000);
+        }
+
+        /* ===================================================
+           DATA LOADING
+        =================================================== */
+        async function loadData() {
+            if (APPS_SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbxy2uYWcLL3oHHYV_l-w87eTrewt-Hut1SydlofJ7cC3x2TYOB69fitiQ4T_huCA2G_9g/exec') {
+                renderLeaderboard([]);
+                updatePrizePool(0);
+                document.getElementById('stat-players').textContent = '0';
+                document.getElementById('stat-pool').textContent = '0 CFA';
+                return;
+            }
+
+            try {
+                const res = await fetch(`${APPS_SCRIPT_URL}?action=getData`, { cache: 'no-cache' });
+                const data = await res.json();
+
+                appState.players = data.players || [];
+                appState.results = data.results || {};
+
+                renderLeaderboard(appState.players);
+                updatePrizePool(appState.players.length);
+
+                document.getElementById('stat-players').textContent = appState.players.length;
+                document.getElementById('stat-pool').textContent = fmtCFA(appState.players.length * ENTRY_FEE);
+                document.getElementById('last-updated').textContent = new Date().toLocaleTimeString();
+
+                const badge = document.getElementById('lb-badge');
+                badge.textContent = 'Live';
+                badge.className = 'card-badge';
+
+            } catch (err) {
+                console.error('loadData error:', err);
+                const badge = document.getElementById('lb-badge');
+                badge.textContent = 'Error';
+                badge.className = 'card-badge err';
+                document.getElementById('lb-content').innerHTML = `
+        <div class="lb-empty">
+          <div class="lb-empty-icon">⚠️</div>
+          <div>Could not load data. Check your Apps Script URL and permissions.</div>
+        </div>`;
+            }
+        }
+
+        /* ===================================================
+           SCORING
+        =================================================== */
+        function calcScore(team, tier) {
+            const stage = appState.results[team];
+            if (!stage) return 0;
+            return (STAGE_POINTS[stage] || 0) * MULTIPLIER[tier];
+        }
+
+        function calcTotal(p) {
+            return calcScore(p.title, 'title') +
+                calcScore(p.dark, 'dark') +
+                calcScore(p.underdog, 'underdog');
+        }
+
+        /* ===================================================
+           LEADERBOARD RENDER
+        =================================================== */
+        function renderLeaderboard(players) {
+            const el = document.getElementById('lb-content');
+
+            if (!players || players.length === 0) {
+                el.innerHTML = `
+        <div class="lb-empty">
+          <div class="lb-empty-icon">⚽</div>
+          <div>No entries yet — be the first to enter!</div>
+        </div>`;
+                return;
+            }
+
+            const ranked = players
+                .map(p => ({ ...p, total: calcTotal(p) }))
+                .sort((a, b) => b.total - a.total);
+
+            const medals = ['🥇', '🥈', '🥉'];
+
+            const rows = ranked.map((p, i) => {
+                const rank = i + 1;
+                const rankHtml = rank <= 3
+                    ? `<span class="rank-medal">${medals[i]}</span>`
+                    : `<span class="rank-num">${rank}</span>`;
+
+                const tScore = calcScore(p.title, 'title');
+                const dScore = calcScore(p.dark, 'dark');
+                const uScore = calcScore(p.underdog, 'underdog');
+                const hint = p.total > 0
+                    ? `${tScore.toFixed(0)} + ${dScore.toFixed(0)} + ${uScore.toFixed(0)}`
+                    : 'Scores pending';
+
+                return `
+        <tr class="${rank === 1 ? 'gold-row' : ''}">
+          <td class="rank-cell">${rankHtml}</td>
+          <td class="p-name">${esc(p.name)}</td>
+          <td><span class="team-tag">🔱 ${esc(p.title)}</span></td>
+          <td><span class="team-tag">🐴 ${esc(p.dark)}</span></td>
+          <td><span class="team-tag">🐉 ${esc(p.underdog)}</span></td>
+          <td class="score-cell" title="${hint}">${p.total > 0 ? p.total.toFixed(0) : '—'}</td>
+        </tr>`;
+            }).join('');
+
+            el.innerHTML = `
+      <table class="lb-table">
+        <thead>
+          <tr>
+            <th class="rank-cell">#</th>
+            <th>Player</th>
+            <th>Title Contender</th>
+            <th>Dark Horse</th>
+            <th>Underdog</th>
+            <th>Points</th>
+          </tr>
+        </thead>
+        <tbody>${rows}</tbody>
+      </table>`;
+        }
+
+        /* ===================================================
+           PRIZE POOL
+        =================================================== */
+        function updatePrizePool(count) {
+            const pot = count * ENTRY_FEE;
+            document.getElementById('pool-total').textContent = fmtCFA(pot);
+            document.getElementById('pool-sub').textContent = `${count} Player${count !== 1 ? 's' : ''} × ${fmtCFA(ENTRY_FEE)}`;
+            document.getElementById('pool-1st').textContent = fmtCFA(pot * 0.6);
+            document.getElementById('pool-2nd').textContent = fmtCFA(pot * 0.3);
+            document.getElementById('pool-3rd').textContent = fmtCFA(pot * 0.1);
+        }
+
+        /* ===================================================
+           FORM SUBMISSION
+        =================================================== */
+        async function submitEntry() {
+            const name = document.getElementById('name').value.trim();
+            const title = document.getElementById('title').value;
+            const dark = document.getElementById('dark').value;
+            const underdog = document.getElementById('underdog').value;
+
+            if (!name) { showToast('Please enter your name', 'error'); return; }
+            if (!title) { showToast('Please select a Title Contender', 'error'); return; }
+            if (!dark) { showToast('Please select a Dark Horse', 'error'); return; }
+            if (!underdog) { showToast('Please select an Underdog', 'error'); return; }
+
+            if (new Date() > DEADLINE) {
+                showToast('The entry deadline has passed.', 'error');
+                return;
+            }
+
+            const btn = document.getElementById('submit-btn');
+            btn.disabled = true;
+            btn.textContent = '⏳ Submitting…';
+
+            try {
+                const params = new URLSearchParams({ action: 'addPlayer', name, title, dark, underdog });
+                const res = await fetch(`${APPS_SCRIPT_URL}?${params}`, { cache: 'no-cache' });
+                const data = await res.json();
+
+                if (data.success) {
+                    showToast(`✅ Entry submitted! Welcome, ${name}!`, 'success');
+                    document.getElementById('name').value = '';
+                    document.getElementById('title').value = '';
+                    document.getElementById('dark').value = '';
+                    document.getElementById('underdog').value = '';
+                    setTimeout(loadData, 1500);
+                } else {
+                    showToast(data.message || 'Submission failed. Please try again.', 'error');
+                }
+            } catch (err) {
+                showToast('Network error. Please check your connection.', 'error');
+                console.error(err);
+            } finally {
+                btn.disabled = false;
+                btn.textContent = '🚀 Submit Entry';
+            }
+        }
+
+        /* ===================================================
+           UTILITIES
+        =================================================== */
+        function fmtCFA(n) {
+            return n.toLocaleString('fr-FR') + ' CFA';
+        }
+
+        function pad(n) {
+            return String(n).padStart(2, '0');
+        }
+
+        function esc(str) {
+            if (!str) return '';
+            return str
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;');
+        }
+
+        function showToast(msg, type = 'info') {
+            const t = document.getElementById('toast');
+            t.textContent = msg;
+            t.className = `toast ${type} show`;
+            setTimeout(() => { t.classList.remove('show'); }, 4500);
+        }
+    </script>
+
+</body>
+
+</html>
